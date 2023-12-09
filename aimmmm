@@ -1,0 +1,38 @@
+# Create the main window
+root = tk.Tk()
+root.title("Deepfake Audio Detection")
+
+
+root.geometry("800x400")
+root.resizable(0,0)
+
+#bg=tk.PhotoImage(file = "C:\Users\\Aiman Shariff\\OneDrive\\Desktop\\matrixx.jpeg")
+#label1 = tk.Label( root, image = bg ) 
+#label1.place(x = 0, y = 0) 
+
+# Configure background color
+root.configure(bg="#0a314f")  # Dark gray background
+
+# Label at the top
+title_label = tk.Label(root, text="Deepfake Audio Detection", font=("Georgia", 36, "bold"), fg="#FFFFFF", bg="#0a314f")  # Use Georgia font
+title_label.pack(pady=40)
+
+# Label for inserting audio
+instruction_label = tk.Label(root, text="Insert the Audio", font=("Georgia", 22, "italic"), fg="#FFFFFF", bg="#0a314f")
+instruction_label.pack(pady=20)
+
+# Button for file attachment
+attach_button = tk.Button(root, text="Attach Audio", command=process_audio, font=("Georgia", 18), fg="#FFFFFF", bg="#17143b")
+attach_button.pack(pady=40)
+
+# Output label at the bottom middle
+output_label = tk.Label(root, text="", font=("Georgia", 22), fg="#FFFFFF", bg="#0a314f")
+output_label.pack(pady=20)
+
+# Progress bar (hidden initially)
+progress_bar = ttk.Progressbar(root, orient="horizontal", length=300, mode="determinate", style="green.Horizontal.TProgressbar")
+style = ttk.Style()
+style.configure("green.Horizontal.TProgressbar", troughcolor="#0a314f", background="green", thickness=20)
+
+# Start the main loop
+root.mainloop()
